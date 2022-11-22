@@ -1,9 +1,10 @@
+import { BigNumber } from "ethers"
 import { ethers } from "hardhat"
 
 export interface networkConfigItem {
     vrfCoordinatorV2?: string
     blockConfirmations?: number
-    entranceFee?: string
+    entranceFee?: BigNumber
     gasLane?: string
     name?: string
     subscriptionId?: string
