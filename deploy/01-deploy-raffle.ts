@@ -54,6 +54,9 @@ const deployRaffle: DeployFunction = async ({ getNamedAccounts, deployments }) =
 
     if (!developmentChain.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
         await verify(Raffle.address, args)
+    } else {
+        const vrfCoordinatorV2Mock = await ethers.getContract("VRFCoordinatorV2Mock")
+        await vrfCoordinatorV2Mock.addConsumer(subscriptionId, Raffle.address)
     }
 }
 

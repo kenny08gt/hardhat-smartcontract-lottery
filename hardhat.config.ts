@@ -52,6 +52,9 @@ const config: HardhatUserConfig & NetworkUserConfig = {
             default: 1,
         },
     },
+    mocha: {
+        timeout: 200000, //200 seconds
+    },
 }
 
 export default config
