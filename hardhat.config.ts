@@ -22,6 +22,7 @@ const config: HardhatUserConfig & NetworkUserConfig = {
             accounts: [PRIVATE_KEY],
             chainId: 5,
             gasPrice: 1625502308,
+            saveDeployments: true,
         },
         hardhat: {
             chainId: 31337,
@@ -35,7 +36,19 @@ const config: HardhatUserConfig & NetworkUserConfig = {
         compilers: [{ version: "0.8.8" }, { version: "0.6.6" }],
     },
     etherscan: {
-        apiKey: ETHERSCAN_API_KEY,
+        apiKey: {
+            goerli: ETHERSCAN_API_KEY,
+        },
+        customChains: [
+            {
+                network: "goerli",
+                chainId: 5,
+                urls: {
+                    apiURL: "https://api-goerli.etherscan.io/api",
+                    browserURL: "https://goerli.etherscan.io",
+                },
+            },
+        ],
     },
     gasReporter: {
         enabled: true,

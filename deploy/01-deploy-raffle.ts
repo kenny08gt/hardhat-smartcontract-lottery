@@ -1,4 +1,4 @@
-import { verify } from "../utils/verify"
+import verify from "../utils/verify"
 import { ethers, network } from "hardhat"
 import { networkConfig, developmentChain } from "../helper-hardhat-config"
 import { DeployFunction } from "hardhat-deploy/dist/types"
